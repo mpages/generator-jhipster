@@ -19,7 +19,7 @@ import java.util.Optional;<% } %>
  * REST controller for managing <%= entityClass %>.
  */
 @RestController
-@RequestMapping("/app")
+@RequestMapping("/app/rest/<%= entityInstance %>s")
 public class <%= entityClass %>Resource {
 
     private final Logger log = LoggerFactory.getLogger(<%= entityClass %>Resource.class);
@@ -30,7 +30,7 @@ public class <%= entityClass %>Resource {
     /**
      * POST  /rest/<%= entityInstance %>s -> Create a new <%= entityInstance %>.
      */
-    @RequestMapping(value = "/rest/<%= entityInstance %>s",
+    @RequestMapping(
             method = RequestMethod.POST,
             produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
@@ -42,7 +42,7 @@ public class <%= entityClass %>Resource {
     /**
      * GET  /rest/<%= entityInstance %>s -> get all the <%= entityInstance %>s.
      */
-    @RequestMapping(value = "/rest/<%= entityInstance %>s",
+    @RequestMapping(
             method = RequestMethod.GET,
             produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
@@ -54,7 +54,7 @@ public class <%= entityClass %>Resource {
     /**
      * GET  /rest/<%= entityInstance %>s/:id -> get the "id" <%= entityInstance %>.
      */
-    @RequestMapping(value = "/rest/<%= entityInstance %>s/{id}",
+    @RequestMapping(value = "/{id}",
             method = RequestMethod.GET,
             produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
@@ -75,7 +75,7 @@ public class <%= entityClass %>Resource {
     /**
      * DELETE  /rest/<%= entityInstance %>s/:id -> delete the "id" <%= entityInstance %>.
      */
-    @RequestMapping(value = "/rest/<%= entityInstance %>s/{id}",
+    @RequestMapping(value = "/{id}",
             method = RequestMethod.DELETE,
             produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
